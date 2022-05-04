@@ -14,7 +14,8 @@ const assertEqual = function(arrCompare, boolean) {
 };
 
 const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
+  // eliminate edge cases: arrays are not having same length, and either of the input is not array
+  if (arr1.length !== arr2.length || !(Array.isArray(arr1)) || !(Array.isArray(arr2))) {
     return false;
   }
 
