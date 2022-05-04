@@ -30,28 +30,27 @@ const middle = (arr) => {
   let middle = [];
 
   if (!Array.isArray(arr)) {
-    return "Invalid entry. Please input an array with 3 or more elements."
+    return "Invalid entry. Please input an array with 3 or more elements.";
   } else if (arr.length < 3) {
     return middle;
   }
 
   if (arr.length % 2 === 0) {
-    middle.push(arr[(length/2)-1]);
-    middle.push((arr[(length/2)]));
+    middle.push(arr[(length / 2) - 1]);
+    middle.push((arr[(length / 2)]));
     return middle;
   } else {
-    middle.push(arr[Math.floor(length/2)]);
+    middle.push(arr[Math.floor(length / 2)]);
     return middle;
   }
-
-}
+};
 
 console.log(middle([1, 2, 3, 4, 5, 6, 7, 8]));
 console.log(middle([1, 2, 3]));
 console.log(middle([1, 2]));
 console.log(middle(1234));
-console.log(middle(['Lighthouse', 'Labs', 'Bootcamp']))
-console.log(middle(['Lighthouse', 'Labs', 'Bootcamp', 'yay']))
+console.log(middle(['Lighthouse', 'Labs', 'Bootcamp']));
+console.log(middle(['Lighthouse', 'Labs', 'Bootcamp', 'yay']));
 
 assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8]), [4, 5]);
 assertArraysEqual(middle(['Lighthouse', 'Labs', 'Bootcamp']), ['Labs']);

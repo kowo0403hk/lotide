@@ -5,11 +5,11 @@
 // Input the returned result into the assertEqual function to evaluate again
 
 //Hand written "console.assert" function
-const assertEqual = function(arrCompare, boolean) {
-  if (arrCompare === boolean) {
-    console.log(`\u2705\u2705\u2705 Assertion Passed: ${arrCompare} === ${boolean}`);
+const assertEqual = function(val1, val2) {
+  if (val1 === val2) {
+    console.log(`\u2705\u2705\u2705 Assertion Passed: ${val1} === ${val2}`);
   } else {
-    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${arrCompare} !== ${boolean}`);
+    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${val1} !== ${val2}`);
   }
 };
 
