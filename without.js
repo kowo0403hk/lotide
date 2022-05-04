@@ -30,9 +30,8 @@ const eqArrays = function(arr1, arr2) {
 
 const without = function(source, itemsToRemove) {
   let result = [];
-  for (let i = 0; i < source.length; i++) {
-    let isIncluded = itemsToRemove.includes(source[i]); 
-    if (!isIncluded) {
+  for (let i = 0; i < source.length; i++) { 
+    if (!itemsToRemove.includes(source[i])) {
       result.push(source[i]);
     }
   }
@@ -40,6 +39,8 @@ const without = function(source, itemsToRemove) {
 }
 
 assertArraysEqual(without(['Lighthouse', 'Foo'], ['Foo']), ['Lighthouse']);
+assertArraysEqual(without([1, 2, 3, 4, 5, 6, 7],[6, 7]),[1, 2, 3, 4, 5])
+assertArraysEqual(without([1, 2, 3, 4, 5, 6, 7],[5, 6, 7]),[1, 2, 3, 4, 5])
 
 console.log(without([1, 2, 3], [1])); // => [2, 3]
 console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
