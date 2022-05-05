@@ -1,12 +1,12 @@
-// Implement the definition for function eqObjects which will take in two objects and returns true or false, based on a perfect match
-// Input required? 2 objects
-// Edge cases? empty objects
+// Implement assertObjectsEqual which will take two objects and console.log an appropriate messeage to the console.
 
-const assertObjectsEqual = function(actual, expected) {
+const assertObjectsEqual = (actual, expected) => {
+  const inspect = require('util').inspect;
+
   if (actual === expected) {
-    console.log(`\u2705\u2705\u2705 Assertion Passed: ${actual} === ${expected}`);
+    console.log(`\u2705\u2705\u2705 Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
   } else {
-    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
   }
 };
 
@@ -40,8 +40,6 @@ const test = (obj1, obj2) => {
   }
   return true;
 };
-
-
 
 const eqObjects = (obj1, obj2) => {
   // general eheck: key numbers and their names
