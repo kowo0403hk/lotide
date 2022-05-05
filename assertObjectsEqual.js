@@ -127,4 +127,4 @@ assertObjectsEqual(eqObjects(ef, fe), true);
 assertObjectsEqual(eqObjects(ef, fe2), false);
 
 
-// Try if we can call the eqObjects function recursively inside the if Array/Object sencario. That would be helpful if there are mulitple nested arrays/objects inside one and other. 
+// Try if we can call the eqObjects function recursively inside the if Array/Object sencario. That would be helpful if there are mulitple nested arrays/objects inside one and other.
