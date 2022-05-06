@@ -34,3 +34,10 @@ assertEqual(findKey({
   "Ora":       { stars: 2 },
   "Akelarre":  { stars: 3 }
 }, x => x.stars === 2), "noma");
+
+assertEqual(findKey({
+  "Surrey":     { expLevel: 3},
+  "Delta":      { expLevel: 5},
+  "Vancouver":  { expLevel: 9},
+  "Burnaby":    { expLevel: 7},
+}, x => x.expLevel === 9), "Vancouver");
