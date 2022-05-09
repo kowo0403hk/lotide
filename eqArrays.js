@@ -5,13 +5,7 @@
 // Input the returned result into the assertEqual function to evaluate again
 
 //Hand written "console.assert" function
-const assertEqual = function(val1, val2) {
-  if (val1 === val2) {
-    console.log(`\u2705\u2705\u2705 Assertion Passed: ${val1} === ${val2}`);
-  } else {
-    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${val1} !== ${val2}`);
-  }
-};
+const assertEqual = require('./assertEqual')
 
 const eqArrays = function(arr1, arr2) {
   // eliminate edge cases: arrays are not having same length, and either of the input is not array
@@ -27,13 +21,7 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-
-
-// Test Case
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
-
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
-
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+module.exports = {
+  eqArrays,
+  assertEqual
+}
