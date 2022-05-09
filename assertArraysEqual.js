@@ -4,13 +4,7 @@
 
 // function that evaluate each of the element of two arrays
 
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`\u2705\u2705\u2705 Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
+const test = require('./eqArrays');
 
 const eqArrays = function(arr1, arr2) {
   // eliminate edge cases: arrays are not having same length, and either of the input is not array
@@ -26,5 +20,16 @@ const eqArrays = function(arr1, arr2) {
   return true;
 };
 
-assertArraysEqual([1, 2, 3], [1, 2, 3]);
-assertArraysEqual([1, 2, 4], [1, 2, 3]);
+const assertArraysEqual = function(arr1, arr2) {
+  if (test.eqArrays(arr1, arr2)) {
+    console.log(`\u2705\u2705\u2705 Assertion Passed: ${arr1} === ${arr2}`);
+  } else {
+    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${arr1} !== ${arr2}`);
+  }
+};
+
+
+module.exports = {
+  assertArraysEqual,
+  eqArrays,
+};
