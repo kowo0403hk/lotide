@@ -15,9 +15,3 @@ const flatten = (arr) => {
 };
 
 module.exports = flatten;
-
-let nested = [1, 2, [3, 4], 5, [6]];
-let test = [1, 2, 3, 4, 5, 6];
-
-console.log(flatten(nested));
-console.log([1, 2, 3, 4, 5, 6]);

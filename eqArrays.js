@@ -31,8 +31,3 @@ const eqArrays = function(arr1, arr2) {
 };
 
 module.exports = eqArrays;
-
-
-let testing = [1, 2, 3];
-console.log(Object.keys(testing));
-console.log(Object.values(testing));
