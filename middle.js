@@ -3,7 +3,7 @@ const middle = (arr) => {
   let middle = [];
 
   if (!Array.isArray(arr)) {
-    return "Invalid entry. Please input an array with 3 or more elements.";
+    throw new Error("Invalid entry. Please input an array with 3 or more elements.");
   }
   
   if (arr.length < 3) {

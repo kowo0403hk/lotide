@@ -1,14 +1,14 @@
-const test = require('../tail');
+const assert = require('chai').assert;
+const tail = require('../tail');
 
-// Test Case 1: Check the returned array elements
-const result = test.tail(["Hello", "Lighthouse", "Labs"]);
-test.assertEqual(result.length, 2); // ensure we get back two elements
-test.assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-test.assertEqual(result[1], "Labs"); // ensure second element is "Labs"
-
-// Test Case 2: Check the original array
-const original = ["Hello", "My", "Name", "Is", "Alex"];
-const newResult = test.tail(original);
-test.assertEqual(newResult.length, 3);
-test.assertEqual(newResult[0], "My");
-test.assertEqual(newResult[3], "Alex");
+describe('#tail', () => {
+  it('returns a new array with the first element removed', () => {
+    assert.deepEqual(tail(["Hello", "Lighthouse", "Labs"]), ['Lighthouse', 'Labs']);
+  });
+  it('returns an empty array if number of elements is equal or less than 1', () => {
+    assert.deepEqual(tail([1]), []);
+  });
+  it('throws Error if input parameter is not an array', () => {
+    assert.throw(() => tail(123), Error);
+  });
+});
