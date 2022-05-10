@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@kowo0403hk/lotide",
   "version": "1.0.0",
-  "description": "lotide library by LHL Bootcamp",
+  "description": "lotide library by LHL Bootcamp student",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,7 +17,7 @@
     "LHL",
     "lotide"
   ],
-  "author": "Alex Cheung",
+  "author": "Alex Kwok On Cheung",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kowo0403hk/lotide/issues"
