@@ -1,49 +1,37 @@
-// Implement the definition for function eqObjects which will take in two objects and returns true or false, based on a perfect match
-// Input required? 2 objects
-// Edge cases? empty objects
-
-const assertObjectsEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`\u2705\u2705\u2705 Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`\u26d4\u26d4\u26d4 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  // eliminate edge cases: arrays are not having same length, and either of the input is not array
-  if (arr1.length !== arr2.length || !(Array.isArray(arr1)) || !(Array.isArray(arr2))) {
-    return false;
-  }
-
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-// test function to test if objects are containing the same name and number of keys
-const test = (obj1, obj2) => {
-  let key1 = Object.keys(obj1);
-  let key2 = Object.keys(obj2);
-  
-  if (key1.length !== key2.length) {
-    return false;
-  } else {
-    for (const val of key1) {
-      if (!(key2.includes(val))) {
-        return false;
-      }
-    }
-  }
-  return true;
-};
-
+// if order of the object does matter, we can imply use JSON.stringify(obj1) === JSON.stringify(obj2) to evalute them.
+// comeback on another for recursion version (deep equal)
 
 
 const eqObjects = (obj1, obj2) => {
+  const eqArrays = function(arr1, arr2) {
+    if (arr1.length !== arr2.length || !(Array.isArray(arr1)) || !(Array.isArray(arr2))) {
+      return false;
+    }
+  
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const test = (obj1, obj2) => {
+    let key1 = Object.keys(obj1);
+    let key2 = Object.keys(obj2);
+    
+    if (key1.length !== key2.length) {
+      return false;
+    } else {
+      for (const val of key1) {
+        if (!(key2.includes(val))) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
   // general eheck: key numbers and their names
   // get an array for each object which contain their keys
   
@@ -74,56 +62,4 @@ const eqObjects = (obj1, obj2) => {
   return true;
 };
 
-// test case
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-console.log(eqObjects(ab, ba)); // => true
-
-const abc = { a: "1", b: "2", c: "3" };
-console.log(eqObjects(ab, abc)); // => false
-
-
-// // test Arrays
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-console.log(eqObjects(cd, dc)); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-console.log(eqObjects(cd, cd2)); // => false
-
-// test Objects
-const ef = {
-  e:{
-    i: "lighthouse",
-    j: "labs"
-  },
-  f: [1, "2", 3]
-};
-
-const fe = {
-  f: [1, "2", 3],
-  e:{
-    j: "labs",
-    i: "lighthouse"
-  }
-};
-
-console.log(eqObjects(ef, fe)); // => true;
-
-const fe2 = {
-  f: [1, "2", 3],
-  e:{
-    j: "labs",
-    i: "lighthouse",
-    k: "foo"
-  }
-};
-
-console.log(eqObjects(ef, fe2)); // => false;
-
-assertObjectsEqual(eqObjects(ab, ba), true);
-assertObjectsEqual(eqObjects(ab, abc), false);
-assertObjectsEqual(eqObjects(cd, dc), true);
-assertObjectsEqual(eqObjects(cd, cd2), false);
-assertObjectsEqual(eqObjects(ef, fe), true);
-assertObjectsEqual(eqObjects(ef, fe2), false);
+module.exports = eqObjects;
